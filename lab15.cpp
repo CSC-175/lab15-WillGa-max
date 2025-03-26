@@ -10,11 +10,23 @@ using namespace std;
     * reference parameters referencing variables in the main function. *
     ********************************************************************/
 void getInfo(int &pickFrom, int &numPicks) {
-cout << "How many balls (1-12) are in the pool to pick from: ";
-    cin >> pickFrom ;
-    cout << endl;
-    cout << "How many balls (1-" <<pickFrom<<") are in the pool to pick from: ";
-    cin >> numPicks;
+    do {
+        cout << "How many balls (1-12) are in the pool to pick from: ";
+        cin >> pickFrom ;
+        cout << endl;
+        if (pickFrom <= 1 || pickFrom > 12) {
+            cout <<"Input Error! There must be between 1 and 12 balls." << endl;
+        }
+    } while (pickFrom <= 1 || pickFrom >= 12);
+    do {
+        cout << "How many balls (1-" <<pickFrom<<") are in the pool to pick from: ";
+        cin >> numPicks;
+        if (numPicks <= 1 || numPicks > 12) {
+            cout <<"Input Error!" << endl;
+        }
+    }while (numPicks <= 1 || numPicks >= pickFrom);
+
+
 
 }
 
@@ -31,7 +43,7 @@ cout << "How many balls (1-12) are in the pool to pick from: ";
     * multiplying two factorials together. This is done to prevent any *
     * intermediate result becoming so large that it causes overflow.   *
     ********************************************************************/
-double computeWays(int k, int n)
+double computeWays(int n, int k)
 {
     double sol;
     int frac = n-k;
@@ -43,6 +55,6 @@ double computeWays(int k, int n)
     * This function computes factorials recursively.                   *
     *******************************************************************/
     double factorial(int n) {
-        if(n == 0) return 1;
+        if(n <= 0) return 1;
         else return n * factorial(n - 1);
     }
