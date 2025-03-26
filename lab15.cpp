@@ -21,7 +21,7 @@ void getInfo(int &pickFrom, int &numPicks) {
     do {
         cout << "How many balls (1-" <<pickFrom<<") are in the pool to pick from: ";
         cin >> numPicks;
-        if (numPicks <= 1 || numPicks > 12) {
+        if (numPicks <= 1 || numPicks > pickFrom) {
             cout <<"Input Error!" << endl;
         }
     }while (numPicks <= 1 || numPicks >= pickFrom);
