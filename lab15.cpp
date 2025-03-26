@@ -9,7 +9,12 @@ using namespace std;
     * Gets and validates lottery info from the user and places it in   *
     * reference parameters referencing variables in the main function. *
     ********************************************************************/
-void getInfo(int &L, int &Ratio) {
+void getInfo(int &pickFrom, int &numPicks) {
+cout << "How many balls (1-12) are in the pool to pick from: ";
+    cin >> pickFrom ;
+    cout << endl;
+    cout << "How many balls (1-" <<pickFrom<<") are in the pool to pick from: ";
+    cin >> numPicks;
 
 }
 
@@ -28,7 +33,7 @@ void getInfo(int &L, int &Ratio) {
     ********************************************************************/
 double computeWays(int k, int n)
 {
-    int sol;
+    double sol;
     int frac = n-k;
     sol = factorial(k) *factorial(frac)/factorial(n);
     return sol;
